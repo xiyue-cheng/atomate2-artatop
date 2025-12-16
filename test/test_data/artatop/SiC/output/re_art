@@ -1,0 +1,76 @@
+  ====================================================================
+ |                             ARTATOP                                |
+ |   Atom Response Theory Analysis Toolkits for Optical Properties    |
+ |   This program is designed to calculate the optical propertities   |
+ |           and perform the Atom Response Theory Analysis            |
+ |             based on the first-principle calculations.             |
+ |                       Support sofetware list:                      |
+ |                           VASP   5.4.4                             |
+ |                           ABINIT 8.10.3                            |
+ |        The copyright is conserved by SDeng Group at FJIRSM.        |
+  ====================================================================
+the program start at 18:46:35 on 2025/10/27
+reading the input file
+      jobname  jobflag
+        AR        124
+   1 nonlinear components will be calculated:
+         1:   xyz
+  scissor shift        =   0.889000 eV
+  tolerance on closeness to singularities     =   0.030000 eV
+  smearing factor      =   0.030000 eV
+reading input file is finished
+VASP data will be used
+vasp_contcar_read: symmetry switch on!
+vasp_contcar_read: this system is [Si4]
+vasp_contcar_read:  2 types of atom are found.
+vasp_contcar_read: the names are    Si  C 
+vasp_contcar_read: the numbers are   4   4
+vasp_contcar_read: Direct coordinates are adopted.
+vasp_contcar_read: the reading of atom position are finished.
+vasp_contcar_read: the symmetry is determining.
+vasp_contcar_read: the space group is F-43m (216)
+vasp_contcar_read: the number of symmetry operators is  96
+vasp_contcar_read: symmetry calculation is done!
+vasp_optic_read: <OPTIC> is found and start to read!
+vasp_optic_read: Please make sure you have generated the file <OPTIC> correctly!
+vasp_optic_read: Help information see, http://cms.mpi.univie.ac.at/vasp/vasp/
+vasp_optic_read: the length of the record is    1360 Byte
+vasp_optic_read: # of band=  84  # of k-point=  84  # of spin=   1
+vasp_optic_read: including   16 valence bands,   68 conduction bands
+vasp_optic_read: the total number of electron is   32.00000
+fermie_cal: the top    of valence     7.950938465E+00 eV
+fermie_cal: the bottom of conduction  9.322016353E+00 eV
+fermie_cal: the fermi energy is       8.636477409E+00 eV
+vasp_waveder_read: <WAVEDER> is found and start to read!
+vasp_waveder_read: <WAVEDER> contains more accurate data for update!
+vasp_waveder_read: Please make sure you have generated the file <WAVEDER> correctly!
+vasp_waveder_read: Help information see, http://cms.mpi.univie.ac.at/vasp/vasp/
+vasp_waveder_read:  # of band=   84   # of k-point=   84   # of spin=    1
+vasp_waveder_read:  # of considered band=   32
+vasp_waveder_read:  # of valence band=   16 in <WAVEDER> file
+vasp_waveder_read: data update is done!
+construct moment matrix using VASP data...
+pmat1111
+construct moment matrix using VASP data...11111
+reading <PROCAR> file from VASP output...
+vasp_procar_read: # of k-points=  84  # of bands=  84  # of atom=   8
+--------------------------------------------------
+            the orbital order are
+            atom 1, angular 1
+            atom 1, angular 2
+              ... ,   ...   ,
+            atom n, angular 1
+            atom n, angular 2
+              ... ,   ...   ,
+            atom n, angular l
+NOTE: the spin polarization is not supported now!
+--------------------------------------------------
+vasp_procar_read:   3 angular components for each atom
+      s      p      d
+vasp_procar_read: start to read data...
+vasp_procar_read: finished reading PROCAR
+nonlinopt_arp: calculating  1 of  1, component xyz
+writing the result in <out_nonlin_arpmn2n.txt> under directory out_nonlin
+writing the result in <out_nonlin_arp.txt> under directory out_nonlin
+cpu time elapse    4.906 seconds
+the program finish at 18:46:40 on 2025/10/27

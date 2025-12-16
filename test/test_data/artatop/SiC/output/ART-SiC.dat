@@ -1,0 +1,5 @@
+SiC d_14 10.669
+ART analysis results for the largest component d_14 for optic_EgHSE
+Type    Natom   IND     TOT     VB      CB      VB_s    VB_p    VB_d    CB_s    CB_p    CB_d    TOT_s   TOT_p   TOT_d   Atao
+Si      4       10.99   43.97   4.83    6.16    0.80    4.03    0.00    2.02    4.15    0.00    2.81    8.18    0.00    10.99   
+C       4       14.01   56.03   9.30    4.71    0.24    9.05    0.00    1.26    3.45    0.00    1.50    12.51   0.00    14.01   

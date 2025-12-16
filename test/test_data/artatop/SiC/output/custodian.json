@@ -1,0 +1,22 @@
+[
+    {
+        "job": {
+            "@module": "custodian.artatop.jobs",
+            "@class": "ArtatopJob",
+            "@version": "2025.1.9",
+            "artatop_cmd": "artatop-1.5.2_temp < /home/asma/Work/jf_calculations/art_local/job_2025-10-27-10-45-53-664815-84981/input_art > re_art",
+            "output_file": "re_art",
+            "stderr_file": "std_err_art.txt",
+            "gzipped": false,
+            "add_files_to_gzip": [],
+            "backup": true
+        },
+        "corrections": [],
+        "handler": null,
+        "validator": null,
+        "max_errors": false,
+        "max_errors_per_job": false,
+        "max_errors_per_handler": false,
+        "nonzero_return_code": false
+    }
+]

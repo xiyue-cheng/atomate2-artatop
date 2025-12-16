@@ -1,0 +1,81 @@
+#Cell parameters
+Chemical fomula                unknown
+Space group                    F-43m                         
+Point group                    -43m                          
+Natom                          8                             
+ori a (A)                      4.360
+ori b (A)                      4.360
+ori c (A)                      4.360
+ori alpha (degree)             90.000
+ori beta (degree)              90.000
+ori gama (degree)              90.000
+relax a (A)                    4.378
+relax b (A)                    4.378
+relax c (A)                    4.378
+relax alpha (degree)           90.000
+relax beta (degree)            90.000
+relax gama (degree)            90.000
+relax Volume (A^3)             83.918
+V/Eg-EXP/Natom (A^3/eV)        0.000
+V/Eg-HSE/Natom (A^3/eV)        4.640
+Eg-PBE (eV)                    1.371
+Eg-EXP (eV)                    0.000
+Eg-HSE (eV) AEXX=0.2500        2.261
+AEXX use for HSE               0.2500
+Scissor-EXP (eV)               0.000
+Scissor-HSE (eV)               0.889
+ 
+
+#LO: optic_EgHSE
+e_xx at 0 eV                   6.557
+e_yy at 0 eV                   6.557
+e_zz at 0 eV                   6.557
+delta_n at 0.000 eV             0.000
+n_xx at 0.650 eV               2.568
+n_yy at 0.650 eV               2.568
+n_zz at 0.650 eV               2.568
+delta_n at 0.650 eV             0.000
+n_xx at 1.167 eV               2.583
+n_yy at 1.167 eV               2.583
+n_zz at 1.167 eV               2.583
+delta_n at 1.167 eV             0.000
+
+
+#NLO: optic_EgHSE
+d_eff at 0.000 eV              9.017
+d_eff at 0.650 eV              11.848
+d_eff at 1.167 eV              15.410
+d_11 at 0 eV                   0.000
+d_12 at 0 eV                   0.000
+d_13 at 0 eV                   0.000
+d_14 at 0 eV                   -10.669
+d_15 at 0 eV                   0.000
+d_16 at 0 eV                   0.000
+d_21 at 0 eV                   0.000
+d_22 at 0 eV                   0.000
+d_23 at 0 eV                   0.000
+d_24 at 0 eV                   0.000
+d_25 at 0 eV                   -10.669
+d_26 at 0 eV                   0.000
+d_31 at 0 eV                   0.000
+d_32 at 0 eV                   0.000
+d_33 at 0 eV                   0.000
+d_34 at 0 eV                   0.000
+d_35 at 0 eV                   0.000
+d_36 at 0 eV                   -10.669
+#Elastic constants in GPa
+none
+#Elastic properties in GPa
+none
+#Calculation parameters
+K-mesh for relax               8 x 8 x 8
+K-mesh for static              12 x 12 x 12
+K-mesh for optic               12 x 12 x 12
+K-mesh for HSE                 8 x 8 x 8
+AEXX use for HSE               0.2500
+EDIFFG                         -0.002
+relax convergence problem                                      
+HSE convergence problem                                        
+Total energy from static (eV)  -60.261
+NBANDS for static              21
+NBANDS for optic               84

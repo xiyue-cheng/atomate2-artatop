@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atomate2-artatop"
+version = "0.1.0"
+description = "ARTATOP extension for Atomate2: workflows, parsers, and post-processing for nonlinear optical calculations."
+readme = "README.md"
+authors = [{ name = "Asma" }]
+license = { text = "BSD-3-Clause" }
+requires-python = ">=3.10"
+
+
+dependencies = [
+    "atomate2>=0.0.16,<0.1.0" ,
+    "pydantic>=2.11.4,<3.0.0",
+    "pydantic-settings>=2.9.1,<3.0.0" ,     # ensures atomate2 is installed
+    "jobflow>=0.1.19",
+    "pymatgen>=2024.10.3",
+    "monty>=2024.7.30",
+    "numpy",
+]
+
+# Optional extras (for development)
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pre-commit",
+]
+
+[project.urls]
+homepage = "https://github.com/xiyue-cheng/atomate2-artatop"
+repository = "https://github.com/xiyue-cheng/atomate2-artatop"
+
+# This tells setuptools where your package is
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# If you want typed package
+[tool.setuptools.package-data]
+"atomate2_artatop" = ["py.typed"]
+
+

@@ -1,0 +1,3 @@
+System                   Natom   SG_relax       NCS/CS    enthalpy  Eg_PBE    Eg_type   Type    deff_0    deff_IR   deff_UV   dn_IR     dn_UV
+                                                          (eV/atom)  (eV)      (eV)              (pm/V)    (pm/V)    (pm/V)              
+unknown                 8       F-43m          NCS          -7.533     1.37      2.26     HSE     9.017    11.848    15.410     0.000     0.000
