@@ -16,7 +16,6 @@ The ARTATOP workflow is developed within the Atomate2 framework to provide fully
 Installation
 ------------
 ```bash
-pip install -r requirements.txt
 pip install .
 ```
 
@@ -57,7 +56,7 @@ flow = workflow_maker.make(
 run_locally(flow, create_folders=True)
 ```
 
-Quick start (jobflow-remote)
+jobflow-remote
 ----------------------------
 ```python
 from jobflow_remote import submit_flow, set_run_config
@@ -101,7 +100,7 @@ Workflow stages
 
 Outputs and plotting
 --------------------
-Key ARTATOP outputs include optical tensors, chi2, d_eff, and atomic/orbital SHG contributions. Example plotting for text outputs:
+ Example plotting for text outputs:
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
