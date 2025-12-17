@@ -1,3 +1,3 @@
 from importlib.metadata import version
 
-__version__ = version("atomate2_artatop")
+__version__ = version("atomate2-artatop")

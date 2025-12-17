@@ -7,7 +7,11 @@ name = "atomate2-artatop"
 version = "0.1.0"
 description = "ARTATOP extension for Atomate2: workflows, parsers, and post-processing for nonlinear optical calculations."
 readme = "README.md"
-authors = [{ name = "Asma" }]
+authors = [
+  { name = "Asma Sher" },
+  { name = "Xiyue Cheng" },
+  { name = "Shuiquan Deng" }
+]
 license = { text = "BSD-3-Clause" }
 requires-python = ">=3.10"
 

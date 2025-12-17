@@ -1,17 +1,15 @@
 # atomate2-artatop
-Atomate2 extension integrating the Atomic Response Theory Toolkit (ARTATOP) for optical properties analysis, including full atomic and orbital-resolved SHG contributions powered by atomate2, jobflow, VASP, and ARTATOP. Built and tested with Python 3.10+.
+Atomate2 extension integrating the (Atomic Response Theory Toolkit for Optical Properties [ARTATOP](http://www.artatop.net/) for optical properties analysis, including full atomic and orbital-resolved SHG contributions powered by atomate2, jobflow, VASP, and ARTATOP. Built and tested with Python 3.10+.
 
-Badges (optional)
+Badges
 -----------------
 [![python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/downloads/)
 
 Overview
 --------
-Taking advantage of Atomate2’s systematic approach, we have integrated ARTATOP (Atomic Response Theory Toolkit for Optical Properties) into Atomate2 to automate and streamline the calculation of nonlinear optical properties of materials. ARTATOP enables the analysis of each atom’s contribution to the second-harmonic generation (SHG) response using advanced theoretical approaches. Workflow execution is managed remotely via jobflow-remote for robust and scalable job handling.
 
-Features
---------
-The ARTATOP workflow is developed within the Atomate2 framework to provide fully automated, high-throughput calculations of both linear and nonlinear optical properties in crystalline materials. Its key purpose is to ensure reproducible and efficient computation of optical tensors—including dielectric constants, refractive indices, birefringence, and second-harmonic generation (SHG) coefficients—based on VASP and atomic response theory.
+Taking advantage of Atomate2’s systematic workflow framework, ARTATOP is integrated into [Atomate2](https://github.com/materialsproject/atomate2) to automate and streamline the calculation of nonlinear optical properties of materials, enabling atom-resolved analysis of second-harmonic generation (SHG) responses using advanced theoretical approaches. Workflow execution is managed remotely via [jobflow-remote](https://github.com/Matgenix/jobflow-remote), providing robust and scalable job handling. 
+Developed within the Atomate2 framework, the ARTATOP workflow supports fully automated, high-throughput calculations of linear and nonlinear optical properties in crystalline materials. Its purpose is to ensure reproducible and efficient computation of optical tensors, including dielectric constants, refractive indices, birefringence, and SHG coefficients, based on VASP and atomic response theory.
 
 Installation
 ------------
@@ -56,7 +54,7 @@ flow = workflow_maker.make(
 run_locally(flow, create_folders=True)
 ```
 
-jobflow-remote
+Quick start (jobflow-remote)
 ----------------------------
 ```python
 from jobflow_remote import submit_flow, set_run_config
@@ -91,66 +89,46 @@ submit_flow(
 
 Workflow stages
 ---------------
-1. Geometry: double relaxation to optimize the structure.
-2. Static preconverge: wavefunction and charge density.
-3. Optics NSCF: dense k-points and increased bands for frequency-dependent dielectric response.
-4. HSE06 static: refined band structure and bandgap for scissor corrections.
-5. ARTATOP computation: linear and nonlinear responses (dielectric, refractive indices, birefringence, d_eff) with atomic and orbital analysis.
-6. Results packaging: aggregates ARTATOP outputs into structured files and a JSON summary.
+1. Relaxation: double relaxation to optimize the structure.
+2. Static: wavefunction and charge density and bandgap.
+3. Optic: uses dense k-points and increased bands for frequency-dependent optical response.
+4. HSE06: refined bandgap for scissor correction.
+5. ARTATOP: linear and nonlinear responses optical response( dielectric function, refractive indices, birefringence, SHG coefficient) with atomic and orbital contribution analysis.
+6. Results: structured ARTATOP output files and JSON summary.
 
 Outputs and plotting
 --------------------
  Example plotting for text outputs:
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
-import os
+from jobflow import SETTINGS
+from atomate2_artatop.plotting import plot_d_energy
 
-def load_data(filename):
-    if not os.path.exists(filename):
-        raise FileNotFoundError(f"{filename} not found.")
-    data = np.loadtxt(filename)
-    return data[:, 0], data[:, 1]
+store = SETTINGS.JOB_STORE
+store.connect()
 
-E_v, zeta_v = load_data("nshgv")
-E_c, zeta_c = load_data("nshgc")
-E_dv, dzeta_v = load_data("dshgv")
-E_dc, dzeta_c = load_data("dshgc")
+result = store.query_one({"name": "artatop"}, load=True)
 
-plt.figure(figsize=(8, 3.5))
-plt.plot(E_v, zeta_v, color="darkgreen", label="zetaV(E_B) (VB)")
-plt.plot(E_c, zeta_c, color="mediumpurple", label="zetaC(E_B) (CB)")
-plt.axvline(0, color="gray", linestyle="--", linewidth=0.8)
-plt.xlabel("E_B (eV)")
-plt.ylabel("zeta(E_B)")
-plt.title("zeta(E_B) vs E_B")
-plt.legend()
-plt.grid(True, linestyle="--", alpha=0.4)
-plt.tight_layout()
-plt.savefig("zeta_combined.png", dpi=300)
-plt.close()
+plot_d_energy(result)
 
-plt.figure(figsize=(8, 3.5))
-plt.plot(E_dv, dzeta_v, color="darkgreen", label="delta zetaV(E_B) (VB)")
-plt.plot(E_dc, dzeta_c, color="mediumpurple", label="delta zetaC(E_B) (CB)")
-plt.axvline(0, color="gray", linestyle="--", linewidth=0.8)
-plt.xlabel("E_B (eV)")
-plt.ylabel("delta zeta(E_B)")
-plt.title("delta zeta(E_B) vs E_B")
-plt.legend()
-plt.grid(True, linestyle="--", alpha=0.4)
-plt.tight_layout()
-plt.savefig("dzeta_combined.png", dpi=300)
-plt.close()
 ```
 
 Tips and notes
 --------------
 - Set `ARTATOP_CMD` and `VASP_CMD` to cluster-accessible executables.
 - Align job store and Mongo configurations across submit and query environments.
-- Tune `resources` for your partitions; optics steps may need dense meshes and more bands.
+- Tune `resources` for your partitions.
 - HSE06 improves the bandgap used for scissor corrections; ensure sufficient wall time.
 
 License and citation
 --------------------
 The project is an add-on / extension. It uses the same license as Atomate2. The license text is available in the repository [LICENSE](LICENSE).
+If you use atomate2-artatop, please cite the following repository:
+
+```@software{artatop_workflow,
+  author = {Sher, Asma and Cheng, Xiyue and Deng, Shuiquan},
+  title  = {ARTATOP Workflow for Optical and Nonlinear Optical Property Calculations},
+  year   = {2025},
+  note   = {Manuscript in preparation},
+  url    = {https://github.com/xiyue-cheng/atomate2-artatop}
+}
+```
