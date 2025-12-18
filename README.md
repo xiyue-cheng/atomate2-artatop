@@ -39,7 +39,7 @@ from pymatgen.core import Structure
 from atomate2_artatop.flows.artatop import ArtatopWorkflowMaker
 
 structure = Structure(
-    lattice=[[0, a / 2, a / 2],[a / 2, 0, a / 2],[a / 2, a / 2, 0]],
+    lattice=[[0, 2.18, 2.18],[2.18, 0, 2.18],[2.18, 2.18, 0]],
     species=["Si", "C"],
     coords=[[0.0, 0.0, 0.0], [0.25, 0.25, 0.25]],
 )
@@ -62,7 +62,7 @@ from pymatgen.core import Structure
 from atomate2_artatop.flows.artatop import ArtatopWorkflowMaker
 
 structure = Structure(
-    lattice=[[0, a / 2, a / 2],[a / 2, 0, a / 2],[a / 2, a / 2, 0]],
+    lattice=[[0, 2.18, 2.18],[2.18, 0, 2.18],[2.18, 2.18, 0]],
     species=["Si", "C"],
     coords=[[0.0, 0.0, 0.0], [0.25, 0.25, 0.25]],
 )
