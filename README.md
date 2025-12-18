@@ -1,5 +1,5 @@
 # atomate2-artatop
-Atomate2 extension integrating the (Atomic Response Theory Toolkit for Optical Properties [ARTATOP](http://www.artatop.net/) for optical properties analysis, including full atomic and orbital-resolved SHG contributions powered by atomate2, jobflow, VASP, and ARTATOP. Built and tested with Python 3.10+.
+Atomate2 extension integrating the (Atomic Response Theory Toolkit for Optical Properties) [ARTATOP](http://www.artatop.net/) for optical properties analysis, including full atomic and orbital-resolved SHG contributions powered by atomate2, jobflow, VASP, and ARTATOP. Built and tested with Python 3.10+.
 
 Badges
 -----------------
@@ -14,7 +14,7 @@ Developed within the Atomate2 framework, the ARTATOP workflow supports fully aut
 Installation
 ------------
 ```bash
-pip install .
+git clone https://github.com/xiyue-cheng/atomate2-artatop.git
 ```
 
 Post-install configuration
@@ -39,9 +39,9 @@ from pymatgen.core import Structure
 from atomate2_artatop.flows.artatop import ArtatopWorkflowMaker
 
 structure = Structure(
-    lattice=[[0, 2.13, 2.13], [2.13, 0, 2.13], [2.13, 2.13, 0]],
-    species=["Mg", "O"],
-    coords=[[0, 0, 0], [0.5, 0.5, 0.5]],
+    lattice=[[0, a / 2, a / 2],[a / 2, 0, a / 2],[a / 2, a / 2, 0]],
+    species=["Si", "C"],
+    coords=[[0.0, 0.0, 0.0], [0.25, 0.25, 0.25]],
 )
 eg_exp = 0.0
 
@@ -62,9 +62,9 @@ from pymatgen.core import Structure
 from atomate2_artatop.flows.artatop import ArtatopWorkflowMaker
 
 structure = Structure(
-    lattice=[[0, 2.13, 2.13], [2.13, 0, 2.13], [2.13, 2.13, 0]],
-    species=["Mg", "O"],
-    coords=[[0, 0, 0], [0.5, 0.5, 0.5]],
+    lattice=[[0, a / 2, a / 2],[a / 2, 0, a / 2],[a / 2, a / 2, 0]],
+    species=["Si", "C"],
+    coords=[[0.0, 0.0, 0.0], [0.25, 0.25, 0.25]],
 )
 
 flow = ArtatopWorkflowMaker().make(
@@ -82,7 +82,7 @@ flow = set_run_config(
 submit_flow(
     flow,
     project="atlas",
-    worker="xy_worker",
+    worker="mars_worker",
     resources={"nodes": 1, "ntasks": 64, "partition": "mars"},
 )
 ```

@@ -9,8 +9,8 @@ from os.path import expandvars
 from typing import TYPE_CHECKING, Any
 
 from custodian import Custodian
-from custodian.artatop.handlers import ArtatopFilesValidator
-from custodian.artatop.jobs import ArtatopJob
+from custodian_artatop.handlers import ArtatopFilesValidator
+from custodian_artatop.jobs import ArtatopJob
 from jobflow.utils import ValueEnum
 from atomate2.settings import Atomate2Settings
 

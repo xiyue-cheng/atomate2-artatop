@@ -97,7 +97,7 @@ class ARTATOPMaker(Maker):
             artatop_cmd = f"{SETTINGS.ARTATOP_CMD} < {input_file} > {output_file}"
             print(f"Running ARTATOP command for {calc_type}:", artatop_cmd)
 
-            from custodian.artatop.handlers import ArtatopFilesValidator
+            from custodian_artatop.handlers import ArtatopFilesValidator
 
             self.run_artatop_kwargs["validators"] = [
                 ArtatopFilesValidator(required_files=[output_file])
