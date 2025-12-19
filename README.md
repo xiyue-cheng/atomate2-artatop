@@ -121,7 +121,7 @@ Tips and notes
 
 License and citation
 --------------------
-The project is an add-on / extension. It uses the same license as Atomate2. The license text is available in the repository [LICENSE](LICENSE).
+The project is an add-on / extension. It uses the BSD 3-Clause License. The license text is available in the repository [LICENSE](LICENSE).
 If you use atomate2-artatop, please cite the following repository:
 
 ```@software{artatop_workflow,
